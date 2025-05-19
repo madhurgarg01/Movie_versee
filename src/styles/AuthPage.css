@@ -1,0 +1,114 @@
+/* src/styles/AuthPage.css */
+.auth-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top to see scroll on smaller heights */
+  min-height: calc(100vh - 80px); /* Adjust 80px based on your navbar height */
+  padding: 40px 20px;
+  background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.95)),
+              url('https://source.unsplash.com/random/1600x900/?cinema,movie,theater') no-repeat center center/cover; /* Example background */
+}
+
+.auth-form-wrapper {
+  background-color: rgba(10, 10, 10, 0.85); /* Dark, slightly transparent background */
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  width: 100%;
+  max-width: 450px;
+  color: #fff;
+  backdrop-filter: blur(5px); /* Frosted glass effect */
+}
+
+.auth-form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  color: #e50914; /* Accent color */
+}
+
+.auth-error-message {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ffcccc;
+  border: 1px solid #e50914;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.auth-form .form-group {
+  margin-bottom: 20px;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box; /* Important for padding and width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus,
+.auth-form input[type="text"]:focus {
+  outline: none;
+  border-color: #e50914;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px; /* Add some space above the button */
+}
+
+.auth-button:hover {
+  background-color: #f6121d;
+  /* transform: scale(1.02); Framer Motion handles this */
+}
+
+.auth-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.auth-switch-text {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.auth-switch-text a {
+  color: #e50914;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-switch-text a:hover {
+  text-decoration: underline;
+}

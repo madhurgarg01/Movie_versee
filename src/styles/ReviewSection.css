@@ -1,0 +1,128 @@
+/* src/styles/ReviewSection.css */
+.reviews-section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: rgba(25, 25, 25, 0.7); /* Dark, slightly transparent background */
+  border-radius: 8px;
+}
+
+/* .section-title is in MovieDetailPage.css or App.css */
+.reviews-section .section-title {
+  margin-top: 0; /* Reset margin if used inside this section */
+  margin-bottom: 25px;
+}
+
+.community-rating { /* Added in meta-info */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.review-form {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.review-form .form-title {
+  font-size: 1.3rem;
+  color: #e0e0e0;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.review-form .form-group {
+  margin-bottom: 15px;
+}
+
+.review-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+.review-form .star-rating {
+  margin-bottom: 5px; /* Adjust spacing for star rating */
+}
+
+.review-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.95rem;
+  min-height: 80px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.review-form textarea:focus {
+  outline: none;
+  border-color: #e50914;
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+}
+
+.submit-review-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.submit-review-btn:hover:not(:disabled) {
+  background-color: #f6121d;
+}
+
+.submit-review-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.review-error-message {
+  color: #ffcccc;
+  background-color: rgba(229, 9, 20, 0.3);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  border-left: 3px solid #e50914;
+}
+
+.already-reviewed-message,
+.login-prompt-review {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+.login-prompt-review a {
+    color: #e50914;
+    font-weight: bold;
+    text-decoration: none;
+}
+.login-prompt-review a:hover {
+    text-decoration: underline;
+}
+
+
+.reviews-list {
+  margin-top: 20px;
+}
+
+.reviews-list > p { /* "Loading reviews..." or "No reviews yet..." */
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
+}

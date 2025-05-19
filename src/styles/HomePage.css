@@ -1,0 +1,45 @@
+/* src/styles/HomePage.css */
+
+/* .page-title is in App.css */
+/* .movies-grid, .loading, .error are in App.css */
+
+.section-title-home { /* Specific title for sections on homepage */
+  font-size: 1.8rem;
+  color: #e0e0e0;
+  margin: 40px 0 20px 0;
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #333;
+}
+
+.genres-section-home {
+  margin-bottom: 40px;
+}
+
+.genres-list-home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start; /* Or center */
+}
+
+.genre-link-home span {
+  display: inline-block; /* For Framer Motion transform */
+  padding: 10px 18px;
+  background-color: #2c2c2c; /* Darker background for genre tags */
+  color: #ccc;
+  border-radius: 20px; /* Pill shape */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid #444;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect handled by Framer Motion in component,
+   but you can define the target state here if preferred */
+/* .genre-link-home span:hover {
+  background-color: #e50914;
+  color: white;
+  border-color: #e50914;
+} */

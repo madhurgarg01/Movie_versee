@@ -1,0 +1,26 @@
+/* src/styles/App.css */
+.app-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin: 20px 0;
+  color: #e50914; /* Netflix-like red for titles */
+  text-align: center;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}

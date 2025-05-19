@@ -1,0 +1,98 @@
+/* src/styles/SearchPage.css */
+.search-page-container {
+  padding: 20px;
+  min-height: calc(100vh - 120px); /* Adjust based on navbar/footer */
+}
+
+/* .page-title is in App.css */
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin: 20px auto 30px auto;
+  max-width: 700px; /* Limit width of search bar */
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #222; /* Darker input background */
+  color: #fff;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #777;
+}
+
+.search-input:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
+}
+
+.search-button {
+  padding: 12px 20px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover:not(:disabled) {
+  background-color: #f6121d;
+}
+
+.search-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* .movies-grid, .loading, .error are in App.css.
+   You can add specific overrides for .search-results-grid if needed. */
+.search-results-grid {
+  padding-bottom: 20px; /* Space before pagination */
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding-bottom: 20px;
+}
+
+.pagination-controls button {
+  padding: 8px 15px;
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+  background-color: #444;
+  border-color: #777;
+}
+
+.pagination-controls button:disabled {
+  background-color: #222;
+  color: #555;
+  cursor: not-allowed;
+  border-color: #333;
+}
+
+.pagination-controls span {
+  font-size: 0.9rem;
+  color: #ccc;
+}

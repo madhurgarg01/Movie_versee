@@ -1,0 +1,37 @@
+/* src/components/StarRating.css */
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* Small gap between stars */
+}
+
+.star-rating.read-only .star {
+  cursor: default;
+}
+
+.star {
+  font-size: var(--star-size, 24px); /* Use CSS variable for size */
+  color: #ccc; /* Color for empty stars */
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  line-height: 1; /* Ensure stars align nicely */
+  user-select: none; /* Prevent text selection */
+}
+
+.star.filled {
+  color: #f5c518; /* IMDb yellow for filled stars */
+}
+
+.clear-rating {
+  margin-left: 8px;
+  font-size: calc(var(--star-size, 24px) * 0.8);
+  color: #aaa;
+  cursor: pointer;
+  padding: 0 5px;
+  border-radius: 3px;
+  line-height: 1;
+}
+.clear-rating:hover {
+  color: #e50914;
+  background-color: rgba(229,9,20,0.1);
+}

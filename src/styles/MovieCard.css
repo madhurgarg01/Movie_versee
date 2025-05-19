@@ -1,0 +1,61 @@
+/* src/styles/MovieCard.css */
+.movie-card {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/3; /* Maintain poster aspect ratio */
+  object-fit: cover;
+}
+
+.movie-card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Makes content take remaining space */
+}
+
+.movie-card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card-rating {
+  font-size: 0.9rem;
+  color: #f5c518; /* IMDb-like yellow for rating */
+  margin-bottom: 5px;
+}
+
+.movie-card-rating .star {
+  margin-right: 3px;
+}
+
+.movie-card-overview {
+  font-size: 0.8rem;
+  color: #ccc;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px;
+}

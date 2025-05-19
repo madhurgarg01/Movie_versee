@@ -1,0 +1,58 @@
+/* src/components/ReviewItem.css */
+.review-item {
+  background-color: #1f1f1f; /* Slightly lighter than page background */
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.review-author {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin: 0;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* StarRating component itself will have its styles.
+   This section is for spacing around it within the review item. */
+.review-item .star-rating {
+  margin-bottom: 10px;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ccc;
+  white-space: pre-wrap; /* Preserve line breaks in review text */
+  margin-top: 5px;
+}
+
+.delete-review-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  float: right; /* Or use flex for alignment */
+  transition: background-color 0.2s ease;
+}
+
+.delete-review-btn:hover {
+  background-color: #c40812; /* Darker red on hover */
+}

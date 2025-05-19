@@ -1,0 +1,308 @@
+/* src/styles/MovieDetailPage.css */
+.movie-detail-page {
+  color: #fff;
+  padding-bottom: 40px; /* Space at the bottom */
+}
+
+.loading-details,
+.error-details {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 100px;
+  padding: 20px;
+}
+.error-details a {
+    color: #e50914;
+    text-decoration: underline;
+    margin-left: 10px;
+}
+
+.backdrop-image {
+  width: 100%;
+  height: 60vh; /* Adjust as needed */
+  background-size: cover;
+  background-position: center center;
+  position: relative; /* For pseudo-element overlay */
+  margin-bottom: -150px; /* Pull content up over the backdrop */
+}
+
+.backdrop-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(20, 20, 20, 0) 50%, rgba(20, 20, 20, 1) 100%);
+}
+
+.movie-detail-content-wrapper {
+  position: relative; /* To sit above backdrop gradient */
+  z-index: 10;
+  padding: 0 40px; /* Side padding for content */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-detail-content {
+  display: flex;
+  flex-direction: column; /* Stack poster and info on small screens */
+  gap: 30px;
+  background-color: rgba(20, 20, 20, 0.0); /* Slightly transparent dark background */
+  padding: 30px;
+  border-radius: 10px;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */ /* Optional shadow */
+}
+
+@media (min-width: 768px) {
+  .movie-detail-content {
+    flex-direction: row; /* Poster and info side-by-side */
+  }
+}
+
+.poster-container {
+  flex-shrink: 0;
+  width: 100%; /* Full width on small screens */
+  max-width: 300px; /* Max width for poster */
+  margin: 0 auto 20px auto; /* Center on small screens */
+}
+
+@media (min-width: 768px) {
+  .poster-container {
+    width: 300px; /* Fixed width on larger screens */
+    margin: 0;
+  }
+}
+
+.movie-poster-detail {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.info-container {
+  flex-grow: 1;
+}
+
+.movie-title-detail {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-style: italic;
+  color: #aaa;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.meta-info span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rating {
+  color: #f5c518; /* IMDb yellow */
+  font-weight: bold;
+}
+.rating .star {
+  margin-right: 5px;
+}
+
+.genres-list {
+  margin-bottom: 20px;
+}
+
+.genre-tag {
+  display: inline-block;
+  background-color: #333;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease;
+}
+.genre-tag:hover {
+  background-color: #e50914;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  color: #e50914; /* Main accent color */
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 5px;
+}
+
+.overview-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.cast-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+}
+
+.cast-member {
+  text-align: center;
+  background-color: #222;
+  padding: 10px;
+  border-radius: 6px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.cast-member:hover {
+    /* transform: translateY(-5px); */ /* Handled by Framer Motion */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.cast-member img {
+  width: 100%;
+  max-width: 100px; /* Control actor image size */
+  height: auto;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.actor-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.character-name {
+  font-size: 0.8rem;
+  color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trailer-section {
+  margin-top: 40px;
+}
+
+.trailer-video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.trailer-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.actions-placeholder {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.action-button {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: #f6121d;
+    transform: scale(1.05);
+}
+
+/* src/styles/MovieDetailPage.css - Add/Modify these styles */
+
+/* ... (existing styles) ... */
+
+.action-button { /* General style for action buttons */
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    margin-bottom: 15px; /* Space below the button */
+}
+
+.action-button:hover {
+    background-color: #f6121d;
+    /* transform: scale(1.05); Framer motion will handle */
+}
+
+.action-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.watchlist-button {
+    /* Specific styles if needed, or rely on .action-button */
+    background-color: #333; /* Default state */
+    border: 1px solid #555;
+}
+.watchlist-button:hover {
+    background-color: #444;
+}
+
+.watchlist-button.in-watchlist {
+    background-color: #28a745; /* Green when in watchlist */
+    border-color: #1e7e34;
+    color: white;
+}
+.watchlist-button.in-watchlist:hover {
+    background-color: #218838;
+}
+
+.review-button {
+    background-color: #007bff; /* Example color for review button */
+}
+.review-button:hover {
+    background-color: #0056b3;
+}
+
+.actions-placeholder { /* If you keep this for other actions */
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
