@@ -29,13 +29,17 @@
   display: inline-block; /* For Framer Motion transforms */
 }
 
+.nav-links {
+  display: flex; /* Ensures items align nicely in a row */
+  align-items: center; /* Vertically aligns items in the middle */
+}
 
 .nav-links a {
   color: #ccc;
   text-decoration: none;
-  margin-left: 25px;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease; /* CSS transition for color */
+  /* margin-left will be handled by responsive rules for consistency */
 }
 
 .nav-links a:hover {
@@ -46,70 +50,53 @@
     display: inline-block; /* For Framer Motion transforms */
 }
 
-/* src/components/Navbar.css - Add these styles */
-
-/* ... (existing styles) ... */
-
 .nav-user-greeting {
   color: #ccc;
-  margin-left: 25px;
   font-size: 0.9rem;
   display: none; /* Hidden on small screens by default */
+  /* margin-left will be handled by responsive rules */
 }
 
-@media (min-width: 768px) { /* Show greeting on larger screens */
-    .nav-user-greeting {
-        display: inline;
-    }
-}
-
-
+/* Base style for all buttons in nav, including logout */
 .nav-button {
-  background-color: transparent;
-  color: #ccc;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
-  border-radius: 4px;
-  margin-left: 15px;
-  cursor: pointer;
+  padding: 8px 16px;
   font-size: 0.9rem;
-  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.2;
+  border: 1px solid transparent; /* Base border, can be overridden */
+  /* CSS transitions for smooth hover effects controlled by CSS */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-.nav-button:hover {
-  color: #fff;
-  border-color: #e50914;
-}
-
+/* Specific styles for the Logout Button */
 .logout-button {
-  border-color: #e50914;
-  color: #e50914;
+  background-color: #e50914; /* Red background */
+  color: #fff;               /* White text */
+  font-weight: bold;        /* Bold text */
+  border-color: #e50914;      /* Border color matches the background */
 }
 
 .logout-button:hover {
-  background-color: #e50914; /* Keep this for Framer Motion override if needed */
-  color: #fff;
+  background-color: #c40812; /* Darker shade of red on hover */
+  border-color: #c40812;     /* Darker border on hover */
+  color: #fff;               /* Keep text white on hover */
+  /* opacity: 0.9; */       /* Optional: if you like a slight fade effect */
 }
 
-/* src/components/Navbar.css - Add these styles */
-
-/* ... (existing styles) ... */
-
+/* Search form styles */
 .nav-search-form {
   display: none; /* Hidden on small screens by default */
   margin: 0 15px; /* Spacing around the form */
   flex-grow: 0.5; /* Allow it to take some space but not too much */
-  max-width: 300px;
-}
-
-@media (min-width: 768px) { /* Show search form on medium screens and up */
-  .nav-search-form {
-    display: flex;
-  }
+  max-width: 300px; /* Control max width */
 }
 
 .nav-search-input {
-  padding: 6px 10px;
+  padding: 8px 12px;
   font-size: 0.9rem;
   border: 1px solid #444;
   border-radius: 4px;
@@ -129,12 +116,33 @@
   background-color: #333;
 }
 
-/* Adjust nav-links margin if search bar is present */
+/* Responsive adjustments for medium screens and up */
 @media (min-width: 768px) {
-    .nav-links {
-        margin-left: auto; /* Push links to the right if search is in middle */
-    }
-    .nav-links a, .nav-user-greeting, .nav-button {
-        margin-left: 15px; /* Reduce margin slightly if needed */
-    }
+  .nav-search-form {
+    display: flex; /* Show search form */
+    margin: 0 20px; /* Adjust spacing as needed */
+  }
+
+  .nav-user-greeting {
+    display: inline; /* Show greeting */
+  }
+
+  .nav-links {
+    margin-left: auto; /* Push links to the right if search is in middle */
+  }
+
+  /* Consistent spacing for all direct children of nav-links */
+  .nav-links > * {
+    margin-left: 20px; /* Uniform spacing between items */
+  }
+
+  /* No margin for the very first item within nav-links container */
+  .nav-links > *:first-child {
+    margin-left: 0;
+  }
+
+  /* Specific adjustment for the logout button when it follows the user greeting */
+  .nav-user-greeting + .logout-button { /* Targets logout button immediately after greeting */
+    margin-left: 12px; /* Reduced margin for a more connected look */
+  }
 }

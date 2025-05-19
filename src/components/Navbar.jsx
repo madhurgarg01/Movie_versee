@@ -1,5 +1,5 @@
 // src/components/Navbar.jsx
-import React, { useState } from 'react'; // <-- Add useState
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
@@ -8,9 +8,17 @@ import './Navbar.css'; // Ensure you have styles for the new search input
 const Navbar = () => {
   const { currentUser, logout, loadingAuth } = useAuth();
   const navigate = useNavigate();
-  const [navSearchTerm, setNavSearchTerm] = useState(''); // <-- State for nav search
+  const [navSearchTerm, setNavSearchTerm] = useState('');
 
-  const handleLogout = async () => { /* ... */ };
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/login'); // Redirect to login page after logout
+    } catch (error) {
+      console.error("Failed to log out", error);
+      // Optionally, show an error message to the user
+    }
+  };
 
   const handleNavSearchSubmit = (e) => {
     e.preventDefault();
@@ -29,12 +37,14 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <motion.span whileHover={{ scale: 1.1, color: "#e50914" }} /* ... */ >
+          <motion.span
+            whileHover={{ scale: 1.1, color: "#e50914" }}
+            transition={{ duration: 0.2 }}
+          >
             MovieVerse
           </motion.span>
         </Link>
 
-        {/* Optional Navbar Search Form */}
         <form onSubmit={handleNavSearchSubmit} className="nav-search-form">
           <input
             type="text"
@@ -43,28 +53,36 @@ const Navbar = () => {
             onChange={(e) => setNavSearchTerm(e.target.value)}
             className="nav-search-input"
           />
-          {/* You can make the button an icon or very small */}
+          {/* A submit button for the search form could be added here if desired,
+              but pressing Enter in the input field also submits the form.
+              Example: <button type="submit" className="nav-search-submit-btn">Go</button>
+          */}
         </form>
 
         <div className="nav-links">
-          <Link to="/"><motion.span whileHover={{scale:1.1}}>Home</motion.span></Link>
-          {/* The dedicated Search link can still exist or be removed if nav search is prominent */}
-          <Link to="/search"><motion.span whileHover={{scale:1.1}}>Search</motion.span></Link>
+          <Link to="/"><motion.span whileHover={{scale:1.1}} transition={{ duration: 0.2 }}>Home</motion.span></Link>
+          <Link to="/search"><motion.span whileHover={{scale:1.1}} transition={{ duration: 0.2 }}>Search</motion.span></Link>
 
           {!loadingAuth && (
             <>
               {currentUser ? (
                 <>
-                  <Link to="/watchlist"><motion.span whileHover={{scale:1.1}}>Watchlist</motion.span></Link>
-                  <span className="nav-user-greeting">Hi, {currentUser.displayName || currentUser.email}!</span>
-                  <motion.button onClick={handleLogout} /* ... */ >
+                  <Link to="/watchlist"><motion.span whileHover={{scale:1.1}} transition={{ duration: 0.2 }}>Watchlist</motion.span></Link>
+                  <span className="nav-user-greeting">Hi, {currentUser.displayName || currentUser.email}</span>
+                  <motion.button
+                    onClick={handleLogout}
+                    className="nav-button logout-button" // Apply both classes
+                    whileHover={{ scale: 1.05 }} // Framer Motion for scale
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.15 }} // Transition for Framer Motion animations
+                  >
                     Logout
                   </motion.button>
                 </>
               ) : (
                 <>
-                  <Link to="/login"><motion.span whileHover={{scale:1.1}}>Login</motion.span></Link>
-                  <Link to="/register"><motion.span whileHover={{scale:1.1}}>Register</motion.span></Link>
+                  <Link to="/login"><motion.span whileHover={{scale:1.1}} transition={{ duration: 0.2 }}>Login</motion.span></Link>
+                  <Link to="/register"><motion.span whileHover={{scale:1.1}} transition={{ duration: 0.2 }}>Register</motion.span></Link>
                 </>
               )}
             </>
